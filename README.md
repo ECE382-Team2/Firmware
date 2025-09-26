@@ -3,3 +3,8 @@ Here is the repository for all firmware related to the force torque sensor made 
 - capacative sensing 
 - PSoC™ 4100PS to Esp Communication
 - Bluetooth communication from ESP
+
+# Software Requirments:
+
+## Modus
+Please see the [Modus Installation Guide](modus_installation_guide.md) for detailed setup instructions.
