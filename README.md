@@ -8,3 +8,15 @@ Here is the repository for all firmware related to the force torque sensor made 
 
 ## Modus
 Please see the [Modus Installation Guide](modus_installation_guide.md) for detailed setup instructions.
+
+## VS Code Steps
+
+### 1. Setup
+For setting up VS Code see [this](https://code.visualstudio.com/docs/setup/setup-overview) link.
+
+### 2. Creating the app
+
+While this repo should have the required code
+1. install the **ModusToolbox Assistant**
+2. 
+

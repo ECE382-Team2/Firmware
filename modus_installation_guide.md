@@ -36,11 +36,11 @@ For the full official installation guide, see: [Infineon ModusToolbox Installati
 
 ## 3. Install Required Packages
 
-1. In Setup Program, select **ModusToolbox Tools Package**.  
+1. In Setup Program, select **ModusToolbox Tools Package** and **ModusToolbox™ CAPSENSE™ and Multi-Sense Pack** (used for programming with the capacative sensors)
    (Dependencies such as GCC and Programming Tools are auto-selected.)  
 2. Accept license agreements and click **Start**.  
 3. Wait for installation to complete.  
-4. Optionally, install **Eclipse IDE** or **VS Code** (links available in Setup).  
+4. Optionally, install **Eclipse IDE** or **VS Code** (links available in Setup). but we will be using VS code for the sake of this guide 
 
 ---
 
