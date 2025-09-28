@@ -19,7 +19,13 @@ GeneratedSource/
 .mtbqueryapi
 
 # ModusToolbox BSP files. Any custom BSP file for code examples is shipped within the 'templates' folder
-bsps/
+# bsps/
+#  This is included so that when actually pulling this repo, the "make getlibs" command will work
+bsps/**
+!bsps/TARGET_APP_PSOC4-GENERIC/
+!bsps/TARGET_APP_PSOC4-GENERIC/deps/
+!bsps/TARGET_APP_PSOC4-GENERIC/deps/**
+!bsps/TARGET_APP_PSOC4-GENERIC/bsp.mk
 
 # ModusToolbox build system output
 build/
