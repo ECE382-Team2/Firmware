@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01">
+<ExpandedNodeIds>
+<v>CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\TopDesign</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Pins</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Analog</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\DMA</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Clocks</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Interrupts</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\System</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Directives</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Flash Security</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\BCP_Command</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\BCP_Command\CE223621_Temperature_Sensing.iic</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\BCP_Command\CE223621_Temperature_Sensing.ini</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Header Files</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Header Files\cyapicallbacks.h</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Source Files</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Source Files\main.c</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\TopDesign</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Pins</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Analog</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\DMA</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Clocks</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Interrupts</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\System</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Directives</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.cydwr\Flash Security</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\BCP_Command</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\BCP_Command\CE223621_Temperature_Sensing.iic</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\BCP_Command\CE223621_Temperature_Sensing.ini</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Header Files</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Header Files\cyapicallbacks.h</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Source Files</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Source Files\main.c</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\TopDesign</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\TopDesign</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.gpdsc</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.rpt</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.gpdsc</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01.rpt</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\PSoC 4 Architecture TRM</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\PSoC 4100PS Family Datasheet</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\System Reference Guides</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\System Reference Guides\cy_boot_v5_70</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\System Reference Guides\cy_dmac_v1_10</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\System Reference Guides\cy_lfclk_v1_20</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\cy_pins_v2_20</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Gnd_v1_0.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\OpAmp_P4_v1_20.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\PVref_P4_v1_0.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Resistor_v1_0.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Scan_ADC_v2_20.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\SCB_P4_v4_0.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Thermistor_v1_0.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\ThermistorCalc_v1_20.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\PSoC 4 Architecture TRM</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\PSoC 4100PS Family Datasheet</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\System Reference Guides</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\System Reference Guides\cy_boot_v5_70</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\System Reference Guides\cy_dmac_v1_10</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\System Reference Guides\cy_lfclk_v1_20</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\cy_pins_v2_20</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Gnd_v1_0.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\OpAmp_P4_v1_20.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\PVref_P4_v1_0.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Resistor_v1_0.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Scan_ADC_v2_20.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\SCB_P4_v4_0.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\Thermistor_v1_0.pdf</v>
+<v>CE223621_Temperature_Sensing01\CE223621_Temperature_Sensing01\ThermistorCalc_v1_20.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs />
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
