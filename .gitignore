@@ -1,0 +1,40 @@
+# PSOC Creator / ModusToolbox workspace and project files
+*.Will
+
+# Build output directories
+**/Debug/
+**/Release/
+**/build/
+**/BUILD/
+
+# Generated source folders
+**/Generated_Source/
+**/Generated_BSP/
+**/Generated_Solution/
+**/Generated_Tfm/
+
+# Intermediate and makefiles
+**/Makefile
+**/*.d
+**/*.o
+
+# Final artifacts
+**/*.elf
+**/*.axf
+**/*.hex
+**/*.bin
+**/*.map
+**/*.lst
+**/*.s19
+**/*.mem
+
+# Backup and temporary files
+*~
+*.bak
+*.orig
+*.tmp
+*.log
+
+# IDE configs
+.vscode/
+.idea/
