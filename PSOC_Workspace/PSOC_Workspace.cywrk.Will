@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PSOC_Workspace\PSOC_Project\Source Files\main.c">
+<ExpandedNodeIds>
+<v>PSOC_Workspace</v>
+<v>PSOC_Workspace\PSOC_Project</v>
+<v>PSOC_Workspace\PSOC_Project\TopDesign</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Pins</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Analog</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\DMA</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Clocks</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Interrupts</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\System</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Directives</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Flash Security</v>
+<v>PSOC_Workspace\PSOC_Project\Header Files</v>
+<v>PSOC_Workspace\PSOC_Project\Header Files\cyapicallbacks.h</v>
+<v>PSOC_Workspace\PSOC_Project\Source Files</v>
+<v>PSOC_Workspace\PSOC_Project\Source Files\main.c</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>PSOC_Workspace</v>
+<v>PSOC_Workspace\PSOC_Project</v>
+<v>PSOC_Workspace\PSOC_Project\TopDesign</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Pins</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Analog</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\DMA</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Clocks</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Interrupts</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\System</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Directives</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.cydwr\Flash Security</v>
+<v>PSOC_Workspace\PSOC_Project\Header Files</v>
+<v>PSOC_Workspace\PSOC_Project\Header Files\cyapicallbacks.h</v>
+<v>PSOC_Workspace\PSOC_Project\Source Files</v>
+<v>PSOC_Workspace\PSOC_Project\Source Files\main.c</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>PSOC_Workspace</v>
+<v>PSOC_Workspace\PSOC_Project</v>
+<v>PSOC_Workspace\PSOC_Project\TopDesign</v>
+<v>PSOC_Workspace\PSOC_Project\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>PSOC_Workspace</v>
+<v>PSOC_Workspace\PSOC_Project</v>
+<v>PSOC_Workspace\PSOC_Project\TopDesign</v>
+<v>PSOC_Workspace\PSOC_Project\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>PSOC_Workspace</v>
+<v>PSOC_Workspace\PSOC_Project</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.gpdsc</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.rpt</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>PSOC_Workspace</v>
+<v>PSOC_Workspace\PSOC_Project</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.gpdsc</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project.rpt</v>
+<v>PSOC_Workspace\PSOC_Project\PSOC_Project_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PSOC_Workspace\PSOC_Project">
+<ExpandedNodeIds>
+<v>PSOC_Workspace</v>
+<v>PSOC_Workspace\PSOC_Project\PSoC 4 Architecture TRM</v>
+<v>PSOC_Workspace\PSOC_Project\PSoC 4100PS Family Datasheet</v>
+<v>PSOC_Workspace\PSOC_Project\System Reference Guides</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>PSOC_Workspace</v>
+<v>PSOC_Workspace\PSOC_Project</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\PSOC_Project.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\PSOC_Project.cydsn\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="940, 665" SelectedTabbedMdiWindow="d813634d-6772-4b22-9c4f-a5d0c6dcb323"><DocumentWindow Key="C:\Users\Will\Desktop\Code_Folders\School_Software\Tactile\Firmware\PSOC_Workspace\PSOC_Project.cydsn\TopDesign\TopDesign.cysch" Guid="d8792332-d3fb-45e0-be14-e8b395db5b81" /><DocumentWindow Key="C:\Users\Will\Desktop\Code_Folders\School_Software\Tactile\Firmware\PSOC_Workspace\PSOC_Project.cydsn\main.c" Guid="d813634d-6772-4b22-9c4f-a5d0c6dcb323" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="42612bc0-de5d-459f-a281-d72bf4228021" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

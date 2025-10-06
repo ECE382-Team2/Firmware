@@ -1,40 +1,95 @@
-# PSOC Creator / ModusToolbox workspace and project files
-*.Will
+# For nested folders, ignore the folder contents, but whitelist its subfolders.
 
-# Build output directories
-**/Debug/
-**/Release/
-**/build/
-**/BUILD/
+/*
 
-# Generated source folders
-**/Generated_Source/
-**/Generated_BSP/
-**/Generated_Solution/
-**/Generated_Tfm/
+!/*/
 
-# Intermediate and makefiles
-**/Makefile
-**/*.d
-**/*.o
+# Ignore folder containg PSoC Creator version specific downloads
 
-# Final artifacts
-**/*.elf
-**/*.axf
-**/*.hex
-**/*.bin
-**/*.map
-**/*.lst
-**/*.s19
-**/*.mem
+# like components, examples etc.
 
-# Backup and temporary files
-*~
-*.bak
-*.orig
-*.tmp
-*.log
+/4.2
 
-# IDE configs
-.vscode/
-.idea/
+# Then again ignore all the contents, but whitelist its subfolders etc.
+
+# Git doesn’t list excluded directories, so this is the way to get to files
+
+# nested in up to x subfolders
+
+# (where x is the number of asterisks in the "pyramid" below).
+
+/*/*
+
+# Side effect is ignoring all the contents along the route,
+
+# so whitelisting a specific folder content at a specific level needs to be
+
+# stated after blacklisting the contents of the folder one level up.
+
+# Custom folder with shared header and source files
+
+!/common/*
+
+!/*/*/
+
+/*/*/*
+
+!/*/*/*/
+
+/*/*/*/*
+
+!/*/*/*/*/
+
+/*/*/*/*/*
+
+!/*/*/*/*/*/
+
+/*/*/*/*/*/*
+
+!/*/*/*/*/*/*/
+
+/*/*/*/*/*/*/*
+
+!/*/*/*/*/*/*/*/
+
+# Project Directory (project_name.cydsn)
+
+!main.c
+
+!cyapicallbacks.h
+
+!*.cydwr
+
+!*.cyprj
+
+!*.cysch
+
+# Optional files - workspace related
+
+!*.cyprj.*
+
+!*.cywrk
+
+!*.cywrk.*
+
+# Generated source and other source files inside the folder structure
+
+# !*.c
+
+# !*.h
+
+#!*.inc
+
+#!*.icf
+
+#!*.ld
+
+#!*.s
+
+#!*.scat
+
+# Binary files
+
+# !*.hex
+
+# !*.cyacd
