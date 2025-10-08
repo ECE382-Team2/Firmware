@@ -55,17 +55,21 @@
 /* Define the number of slider LEDs in the board. The number of LEDs is equal 
  * to no. of slider segments.
  */
-#define NUM_LEDS CapSense_LINEARSLIDER_NUM_SENSORS
+#define NUM_LEDS 1
 
-/* Defining step size for LED control based on slider resolution */
+// defines the sample call back to be false because it was originally defined for
+// funky slider logic. May re-implement for advanced stuff
+#define CapSense_START_SAMPLE_CALLBACK (0) 
+
+/* Defining step size for LED control based on slider resolution 
 #define POSITION_STEP_SIZE (CapSense_LINEARSLIDER_X_RESOLUTION/NUM_LEDS)
 
-/* Slider position threshold to make the corresponding LED glow */
+ Slider position threshold to make the corresponding LED glow 
 #define LED0_SLIDER_POS_THRESHOLD  (0 * POSITION_STEP_SIZE)
 #define LED1_SLIDER_POS_THRESHOLD  (1 * POSITION_STEP_SIZE)
 #define LED2_SLIDER_POS_THRESHOLD  (2 * POSITION_STEP_SIZE)
 #define LED3_SLIDER_POS_THRESHOLD  (3 * POSITION_STEP_SIZE)
-#define LED4_SLIDER_POS_THRESHOLD  (4 * POSITION_STEP_SIZE)
+#define LED4_SLIDER_POS_THRESHOLD  (4 * POSITION_STEP_SIZE)*/
 
 /*****************************************************************************
 *   Function Prototypes
@@ -150,28 +154,15 @@ void DetectTouchAndDriveLed(void)
     uint32 sliderPos;   
     
     /* If slider is touched, drive the LEDs based on the touch position */
-    if(CapSense_IsWidgetActive(CapSense_LINEARSLIDER_WDGT_ID))
+    if(CapSense_IsWidgetActive(CapSense_PROXIMITY0_WDGT_ID))
     {
-        /* Get the touch position (centroid) of the slider */
-        sliderPos = CapSense_GetCentroidPos(CapSense_LINEARSLIDER_WDGT_ID);
-        
-        /* Turn the LEDs ON based on the finger position (centroid) on the 
-         * CapSense Linear slider 
-         */
-        LED_0_Write((sliderPos > LED0_SLIDER_POS_THRESHOLD) ? LED_ON : LED_OFF);
-        LED_1_Write((sliderPos > LED1_SLIDER_POS_THRESHOLD) ? LED_ON : LED_OFF);
-        LED_2_Write((sliderPos > LED2_SLIDER_POS_THRESHOLD) ? LED_ON : LED_OFF);
-        LED_3_Write((sliderPos > LED3_SLIDER_POS_THRESHOLD) ? LED_ON : LED_OFF);
-        LED_4_Write((sliderPos > LED4_SLIDER_POS_THRESHOLD) ? LED_ON : LED_OFF);
+        // activates LED if there is some capacitance sensed
+        LED_0_Write(LED_ON);
     }
     else 
     {
         /* If the slider is not touched, turn all the LEDs OFF */
         LED_0_Write(LED_OFF);
-        LED_1_Write(LED_OFF);
-        LED_2_Write(LED_OFF);
-        LED_3_Write(LED_OFF);
-        LED_4_Write(LED_OFF); 
     }
 }
 

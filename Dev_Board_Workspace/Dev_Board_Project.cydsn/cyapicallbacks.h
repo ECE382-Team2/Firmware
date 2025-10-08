@@ -43,7 +43,9 @@
 #ifndef CYAPICALLBACKS_H
 #define CYAPICALLBACKS_H
     #include "CapSense.h"
-    #define CapSense_START_SAMPLE_CALLBACK
+    
+    // commented this out because I don't want this interrupt to happen for my simple button pushing stuff
+    //#define CapSense_START_SAMPLE_CALLBACK
         
     /*****************************************************************************
     * Function Prototypes
