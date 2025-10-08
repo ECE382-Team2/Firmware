@@ -58,6 +58,8 @@
 
 !cyapicallbacks.h
 
+!cyapicallbacks.c
+
 !*.cydwr
 
 !*.cyprj
