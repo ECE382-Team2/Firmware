@@ -66,15 +66,38 @@
 *  CapSense_<WidgetName>_SNS<SensorNumber>_ID
 *
 *******************************************************************************/
-/*
+
 void CapSense_StartSampleCallback (uint32 currentWidgetIndex, uint32 currentSensorIndex)
 {
    
     uint8 sensorIndex;
     
-    if(currentWidgetIndex == CapSense_LINEARSLIDER_WDGT_ID)
+//    if(currentWidgetIndex == CapSense_LINEARSLIDER_WDGT_ID)
+//    {
+//        for(sensorIndex = 0; sensorIndex < CapSense_LINEARSLIDER_NUM_SENSORS; sensorIndex++)
+//        {
+//            if(sensorIndex != currentSensorIndex)
+//            {
+//                if((sensorIndex == (currentSensorIndex - 1)) || (sensorIndex == (currentSensorIndex + 1)))
+//                {
+//                    // If the sensor is adjacent to the sensor being scanned, 
+//                     // configure it as shield. 
+//                     
+//                    CapSense_SetPinState(CapSense_LINEARSLIDER_WDGT_ID, sensorIndex, CapSense_SHIELD);
+//                }
+//                else
+//                {
+//                    // If the sensor is not adjacent to the sensor being 
+//                    // scanned, connect it to ground
+//                    CapSense_SetPinState(CapSense_LINEARSLIDER_WDGT_ID, sensorIndex, CapSense_GROUND);
+//                }
+//            }
+//        }
+//    }
+    
+    if(currentWidgetIndex == CapSense_PROXIMITY0_WDGT_ID)
     {
-        for(sensorIndex = 0; sensorIndex < CapSense_LINEARSLIDER_NUM_SENSORS; sensorIndex++)
+        for(sensorIndex = 0; sensorIndex < 1; sensorIndex++)
         {
             if(sensorIndex != currentSensorIndex)
             {
@@ -83,19 +106,18 @@ void CapSense_StartSampleCallback (uint32 currentWidgetIndex, uint32 currentSens
                     // If the sensor is adjacent to the sensor being scanned, 
                      // configure it as shield. 
                      
-                    CapSense_SetPinState(CapSense_LINEARSLIDER_WDGT_ID, sensorIndex, CapSense_SHIELD);
+                    CapSense_SetPinState(CapSense_PROXIMITY0_WDGT_ID, sensorIndex, CapSense_SHIELD);
                 }
                 else
                 {
                     // If the sensor is not adjacent to the sensor being 
-                     / scanned, connect it to ground. 
-                     //
-                    CapSense_SetPinState(CapSense_LINEARSLIDER_WDGT_ID, sensorIndex, CapSense_GROUND);
+                    // scanned, connect it to ground
+                    CapSense_SetPinState(CapSense_PROXIMITY0_WDGT_ID, sensorIndex, CapSense_GROUND);
                 }
             }
         }
     }
 }
-*/
+
 
 /* [] END OF FILE */
