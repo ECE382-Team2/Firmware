@@ -66,6 +66,8 @@
 
 !*.cysch
 
+!*.ctl
+
 # Optional files - workspace related
 
 !*.cyprj.*
