@@ -67,6 +67,48 @@
 *
 *******************************************************************************/
 
+
+#include <stdint.h> // Required for uint_fast8_t and uint8_t
+#include "globals.h"
+
+// Helper functions
+// this was made before I realized that I could just not read the invalid sensor values(which I already do)
+// so it is here in case it will be useful, but otherwise it just won't be used
+uint8_t is_valid_index(uint8_t index)
+{
+    // Check if we are in the special mode
+    if (mode_flag == 0)
+    {
+        // Use a switch statement to check against the list of valid indexes
+        switch (index)
+        {
+            case 0:
+            case 2:
+            case 3:
+            case 4:
+                return 1; // It's a valid index for mode 0
+
+            default:
+                return 0; // It's an invalid index for mode 0
+        }
+    }
+    
+    // For any mode other than 0, all indexes are considered valid.
+    return 1;
+}
+
+
+
+
+// This function assumes 'mode_flag' is a global variable accessible here.
+// For example: extern volatile uint8_t mode_flag;
+
+/**
+ * @brief Checks if a given index is valid based on the current mode.
+ * @param index The index to check.
+ * @return 1 if the index is valid, 0 otherwise.
+ */
+
 void CapSense_StartSampleCallback (uint32 currentWidgetIndex, uint32 currentSensorIndex)
 {
    
@@ -99,7 +141,7 @@ void CapSense_StartSampleCallback (uint32 currentWidgetIndex, uint32 currentSens
     {
         for(sensorIndex = 0; sensorIndex < 1; sensorIndex++)
         {
-            if(sensorIndex != currentSensorIndex)
+            if((sensorIndex != currentSensorIndex))
             {
                 if((sensorIndex == (currentSensorIndex - 1)) || (sensorIndex == (currentSensorIndex + 1)))
                 {

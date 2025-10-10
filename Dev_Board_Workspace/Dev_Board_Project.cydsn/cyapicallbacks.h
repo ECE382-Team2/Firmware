@@ -45,7 +45,7 @@
     #include "CapSense.h"
     
     // commented this out because I don't want this interrupt to happen for my simple button pushing stuff
-    //#define CapSense_START_SAMPLE_CALLBACK
+    #define CapSense_START_SAMPLE_CALLBACK
         
     /*****************************************************************************
     * Function Prototypes
