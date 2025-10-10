@@ -27,6 +27,9 @@
 *****************************************************************************/
 void UART_PutString(const char *s);
 void Post_Process(void);
+void CalibrateCapSense(uint32 widgetID);
+void DetectTouchAndDriveLed(void);
+
 
 uint16 raw_count; 
 uint8_t mode_flag = 0; // positive = shear, zero = normal
@@ -169,33 +172,50 @@ void CalibrateCapSense(uint32 widgetID) {
     
 }
 
+
 /*******************************************************************************
 * Function Name: DetectTouchAndDriveLed
 ********************************************************************************
 * Summary:
-* Reads CapSense data, gets shield status, and transmits both in the format: [Status],[Raw Count]\r\n
+* Reads the CapSense Proximity sensor data and transmits ONLY the raw count 
+* as a number followed by a newline via UART.
+*
+* Parameters:
+* None
+*
+* Return:
+* None
 *******************************************************************************/
 void DetectTouchAndDriveLed(void)
 {
+    // Reduce buffer size to just the raw number and necessary characters
     char txMessage[TX_MESSAGE_SIZE]; 
-    uint8 shield_status; // Local variable to hold the status
-    
-    // Raw capacitance count
-    raw_count = CapSense_dsRam.snsList.proximity0[0].raw[0]; 
-    
-    // Shield status
-    shield_status = IsShieldingActive(); 
 
-    // LED Control: 
-    if (CapSense_IsWidgetActive(CapSense_PROXIMITY0_WDGT_ID)) {
+    // LED Control: (No Change)
+    if (CapSense_IsWidgetActive(CapSense_PROXIMITY0_WDGT_ID))
+    {
         LED_0_Write(LED_ON);
-    } else {
+    }
+    else
+    {
         LED_0_Write(LED_OFF);
     }
     
-    // Message: [ShieldStatus],[RawCount]\r\n
-    sprintf(txMessage, "%u,%u\r\n", shield_status, raw_count); 
-    UART_PutString(txMessage);
+    // *** CRITICAL CHANGE: Only format the number and newline characters ***
+    // This is the most streamlined way to log data.
+    
+    // prints each value in the processed array with the corresponding electrode
+    for (uint8_t i = 0; i < 4; i++)
+    {
+        // Format the string with the mode, electrode index, and processed count
+        sprintf(txMessage, "\n Mode: %u, Electrode: %u, count: %d\r", 
+                (unsigned int)mode_flag, 
+                (unsigned int)i, 
+                processed_data_array[i]);
+        
+        // Send the fully formatted string over the UART
+        UART_PutString(txMessage);
+    }
     CyDelay(50);
 }
 
@@ -248,50 +268,5 @@ int main(void)
     }
 }
 
-/*******************************************************************************
-* Function Name: DetectTouchAndDriveLed
-********************************************************************************
-* Summary:
-* Reads the CapSense Proximity sensor data and transmits ONLY the raw count 
-* as a number followed by a newline via UART.
-*
-* Parameters:
-* None
-*
-* Return:
-* None
-*******************************************************************************/
-void DetectTouchAndDriveLed(void)
-{
-    // Reduce buffer size to just the raw number and necessary characters
-    char txMessage[TX_MESSAGE_SIZE]; 
-
-    // LED Control: (No Change)
-    if (CapSense_IsWidgetActive(CapSense_PROXIMITY0_WDGT_ID))
-    {
-        LED_0_Write(LED_ON);
-    }
-    else
-    {
-        LED_0_Write(LED_OFF);
-    }
-    
-    // *** CRITICAL CHANGE: Only format the number and newline characters ***
-    // This is the most streamlined way to log data.
-    
-    // prints each value in the processed array with the corresponding electrode
-    for (uint8_t i = 0; i < 4; i++)
-    {
-        // Format the string with the mode, electrode index, and processed count
-        sprintf(txMessage, "\n Mode: %u, Electrode: %u, count: %d\r", 
-                (unsigned int)mode_flag, 
-                (unsigned int)i, 
-                processed_data_array[i]);
-        
-        // Send the fully formatted string over the UART
-        UART_PutString(txMessage);
-    }
-    CyDelay(50);
-}
 
 /* [] END OF FILE */
