@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dev_Board_Project-000\Dev_Board_Project\Header Files">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dev_Board_Project-000\Dev_Board_Project\Dev_Board_Project.cydwr\Pins">
 <ExpandedNodeIds>
 <v>Dev_Board_Project-000</v>
 <v>Dev_Board_Project-000\Dev_Board_Project</v>
@@ -42,6 +42,7 @@
 <v>Dev_Board_Project-000\Dev_Board_Project\Generated_Source\PSoC4\CapSense</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>Dev_Board_Project-000</v>
 <v>Dev_Board_Project-000\Dev_Board_Project</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\TopDesign</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\Dev_Board_Project.cydwr</v>
@@ -84,7 +85,6 @@
 <v>Dev_Board_Project-000\Dev_Board_Project\Generated_Source\PSoC4\cy_boot</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\Generated_Source\PSoC4\cy_lfclk</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
-<v>Dev_Board_Project-000\Dev_Board_Project\Generated_Source\PSoC4\LED_0</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -142,6 +142,18 @@
 <v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED_0.lst</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED_0_PM.lst</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_rx.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_rx_PM.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_SCBCLK.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_tx.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_tx_PM.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_UART.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_UART_BOOT.lst</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Dev_Board_Project.elf</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Dev_Board_Project.hex</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Dev_Board_Project.map</v>
@@ -179,12 +191,20 @@
 <v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED_0.lst</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\LED_0_PM.lst</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_rx.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_rx_PM.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_SCBCLK.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_tx.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_tx_PM.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_UART.lst</v>
+<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_UART_BOOT.lst</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Dev_Board_Project.elf</v>
 <v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Dev_Board_Project.hex</v>
-<v>Dev_Board_Project-000\Dev_Board_Project\CortexM0p\ARM_GCC_541\Debug\Dev_Board_Project.map</v>
-<v>Dev_Board_Project-000\Dev_Board_Project\Dev_Board_Project.gpdsc</v>
-<v>Dev_Board_Project-000\Dev_Board_Project\Dev_Board_Project.rpt</v>
-<v>Dev_Board_Project-000\Dev_Board_Project\Dev_Board_Project_timing.html</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

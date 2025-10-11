@@ -16,7 +16,7 @@
 #define LED_OFF          (1u)
 
 /* Define the size for the serial message buffer */
-#define TX_MESSAGE_SIZE  16
+#define TX_MESSAGE_SIZE  64
 
 /* Calibration Constants */
 #define CALIB_NUM_SAMPLES 50
@@ -59,42 +59,38 @@ int16_t processed_data_array[4];
  */
 void Post_Process(void)
 {
-    uint8_t i; // Local loop counter
-    
-    CapSense_FLASH_WD_STRUCT const *proximityWidgetId;
-
-    proximityWidgetId = CapSense_dsFlash.wdgtArray;
+    uint8_t i;
+    uint32_t widgetId = 0u; // Assuming proximity widget is index 0 — change if needed
 
     // --- Mode 0: Read individual, evenly-spaced sensors ---
     if (mode_flag == 0)
     {
-        // An array of the sensor *element* indexes we want to read
+        // The specific proximity sensor IDs you want to read
         const uint8_t sensor_element_indexes[4] = {0, 2, 4, 6};
-        
+
         for (i = 0; i < 4; i++)
         {
-            // Use the API to get the raw count for a specific sensor element
-            // within the main proximity widget.
-            processed_data_array[i] = CapSense_DpProcessCsdWidgetRawCounts(proximityWidgetId + sensor_element_indexes[i]);
+            // Read the raw count for each specified proximity sensor
+            processed_data_array[i] = CapSense_dsRam.snsList.proximity0[sensor_element_indexes[i]].raw[0];
         }
     }
     // --- Mode 1: Read sensor pairs and find the difference ---
-    else 
+    else
     {
         for (i = 0; i < 4; i++)
         {
-            // Calculate the base sensor element index for each pair (0, 2, 4, 6)
             uint8_t base_element_index = i * 2;
-            
-            // Get the raw counts for the sensor pair using the API
-            uint16_t sensor_a = CapSense_DpProcessCsdWidgetRawCounts(proximityWidgetId + base_element_index);
-            uint16_t sensor_b = CapSense_DpProcessCsdWidgetRawCounts(proximityWidgetId + base_element_index + 1);
-            
-            // Subtract the second sensor's value from the first
+
+            // Read both raw counts from the pair
+            uint16_t sensor_a = CapSense_dsRam.snsList.proximity0[base_element_index].raw[0];
+            uint16_t sensor_b = CapSense_dsRam.snsList.proximity0[base_element_index+1].raw[0];
+
+            // Store the difference
             processed_data_array[i] = sensor_a - sensor_b;
         }
     }
 }
+
 
 
 /*******************************************************************************
@@ -208,7 +204,7 @@ void DetectTouchAndDriveLed(void)
     for (uint8_t i = 0; i < 4; i++)
     {
         // Format the string with the mode, electrode index, and processed count
-        sprintf(txMessage, "\n Mode: %u, Electrode: %u, count: %d\r", 
+        sprintf(txMessage, "\n M:%u, E:%u, C:%d\r", 
                 (unsigned int)mode_flag, 
                 (unsigned int)i, 
                 processed_data_array[i]);
@@ -216,7 +212,7 @@ void DetectTouchAndDriveLed(void)
         // Send the fully formatted string over the UART
         UART_PutString(txMessage);
     }
-    CyDelay(50);
+    CyDelay(1000);
 }
 
 /*******************************************************************************
@@ -241,8 +237,9 @@ int main(void)
     CapSense_Start();
     
     /* Calibrate CapSense block */
-    CalibrateCapSense(CapSense_PROXIMITY0_WDGT_ID);
-
+    //CalibrateCapSense(CapSense_PROXIMITY0_WDGT_ID);
+    
+    CapSense_CalibrateAllWidgets();
     /* Initiate the first scan of all enabled widgets */
     CapSense_ScanAllWidgets();
 
