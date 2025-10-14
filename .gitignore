@@ -60,6 +60,8 @@
 
 !cyapicallbacks.c
 
+!globals.h
+
 !*.cydwr
 
 !*.cyprj
