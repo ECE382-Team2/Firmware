@@ -71,6 +71,7 @@ void Post_Process(void)
         for (i = 0; i < 4; i++)
         {
             // Read the raw count for each specified proximity sensor
+            // I personally feel like I should sum subsequent indexes but idk, will test maybe on real board.
             processed_data_array[i] = CapSense_dsRam.snsList.proximity0[sensor_element_indexes[i]].raw[0];
         }
     }
@@ -201,17 +202,18 @@ void DetectTouchAndDriveLed(void)
     // This is the most streamlined way to log data.
     
     // prints each value in the processed array with the corresponding electrode
-    for (uint8_t i = 0; i < 4; i++)
-    {
         // Format the string with the mode, electrode index, and processed count
-        sprintf(txMessage, "\n M:%u, E:%u, C:%d\r", 
-                (unsigned int)mode_flag, 
-                (unsigned int)i, 
-                processed_data_array[i]);
+    
+        uint mode_bit = (mode_flag == 0) ? 0 : 1;
+        sprintf(txMessage, "\n%u,%d,%d,%d,%d\r", 
+                mode_bit,  
+                processed_data_array[0],
+                processed_data_array[1],
+                processed_data_array[2],
+                processed_data_array[3]);
         
         // Send the fully formatted string over the UART
         UART_PutString(txMessage);
-    }
     CyDelay(1000);
 }
 
