@@ -12,12 +12,12 @@
   <Data key="DataVersionKey" value="2" />
   <Group key="DWRInstGuidMapping">
     <Group key="Pin">
-      <Data key="7c22e3c5-da93-4267-9ea2-622856a53add/23b8206d-1c77-4e61-be4a-b4037d5de5fc" value="EZI2C_1_tx" />
+      <Data key="7c22e3c5-da93-4267-9ea2-622856a53add/23b8206d-1c77-4e61-be4a-b4037d5de5fc" value="UART_tx" />
       <Data key="ac11fe2b-51dc-41ed-9aa6-182379a96f09/7850aeaf-db25-4eae-b828-015ef596b59e" value="CapSense_Module_Cmod" />
       <Data key="ac11fe2b-51dc-41ed-9aa6-182379a96f09/30182841-2754-4aee-9532-9ff02059dfef" value="CapSense_Module_AdcInput" />
       <Data key="ac11fe2b-51dc-41ed-9aa6-182379a96f09/77715107-f8d5-47e5-a629-0fb83101ac6b" value="CapSense_Module_Sns" />
-      <Data key="bbacf4ed-1d23-4fd5-915d-9b37a52593db/7850aeaf-db25-4eae-b828-015ef596b59e" value="CapSense_1_Cmod" />
-      <Data key="bbacf4ed-1d23-4fd5-915d-9b37a52593db/77715107-f8d5-47e5-a629-0fb83101ac6b" value="CapSense_1_Sns" />
+      <Data key="bbacf4ed-1d23-4fd5-915d-9b37a52593db/7850aeaf-db25-4eae-b828-015ef596b59e" value="CapSense_Cmod" />
+      <Data key="bbacf4ed-1d23-4fd5-915d-9b37a52593db/77715107-f8d5-47e5-a629-0fb83101ac6b" value="CapSense_Sns" />
     </Group>
   </Group>
   <Group key="FlashSecurity">
@@ -1152,6 +1152,12 @@
       </Group>
       <Group key="7">
         <Data key="Port Format" value="2,2" />
+      </Group>
+      <Group key="8">
+        <Data key="Port Format" value="3,3" />
+      </Group>
+      <Group key="9">
+        <Data key="Port Format" value="0,2" />
       </Group>
     </Group>
     <Group key="UnAssigned Pins" />
