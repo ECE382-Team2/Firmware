@@ -70,13 +70,9 @@
 
 !*.ctl
 
-# Optional files - workspace related
 
-!*.cyprj.*
-
-!*.cywrk
-
-!*.cywrk.*
+# Ignore per-user workspace files (e.g., PSOC_Workspace.cywrk.Will)
+*.cywrk.*
 
 # Generated source and other source files inside the folder structure
 
