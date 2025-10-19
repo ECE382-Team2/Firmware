@@ -149,28 +149,22 @@ void UART_PutString(const char *s)
 * Return:
 * None
 *******************************************************************************/
+
+// Macros
+
+#define MOD_IDAC        4u    // Lower = more sensitive (4–8 typical)
+#define COMP_IDAC       4u
+#define SNS_CLK_DIV     1u    // Lower divider = higher resolution
+#define RESOLUTION_BITS 16u   // Max precision
+
+
 void CalibrateCapSense(uint32 widgetID) {
     
-    char txMessage[TX_MESSAGE_SIZE];
-    uint32 status;
-        
-    // Start the tuning process. This is required before calling auto-calibration.
-    CapSense_RunTuner();
-    
-    UART_PutString("--- Starting CapSense Widget Calibration ---\r\n");
-    
-    /* CapSense block as a CalibrateWidget(). It calibrates all the IDACs for a given 
-    widget. IDAC is Current Digital-to-Analog Converter. I think it adjusts the current range?
-    
-    Returns 0 if calibration was successful. 
-    */ 
-    status = CapSense_CalibrateWidget(widgetID); 
-    sprintf(txMessage, "%lu\r\n", status); 
-    UART_PutString(txMessage);
-    
-    UART_PutString("--- Calibration Complete ---\r\n");
     
 }
+    
+    
+    
 
 
 /*******************************************************************************
@@ -209,7 +203,9 @@ void DetectTouchAndDriveLed(void)
         
         // Send the fully formatted string over the UART
         UART_PutString(txMessage);
-    CyDelay(100);
+    // delays after it has completed a cycle of going from normal to shear
+    if(mode_flag){CyDelay(100);}
+    
 }
 
 /*******************************************************************************
