@@ -33,7 +33,7 @@ void DetectTouchAndDriveLed(void);
 
 uint16 raw_count; 
 uint8_t mode_flag = 0; // positive = shear, zero = normal
-int16_t processed_data_array[4];
+int32_t processed_data_array[4];
 
 // Functions
 
@@ -194,7 +194,7 @@ void DetectTouchAndDriveLed(void)
         // Format the string with the mode, electrode index, and processed count
     
         uint mode_bit = (mode_flag == 0) ? 0 : 1;
-        sprintf(txMessage, "\n%u,%d,%d,%d,%d\r", 
+        sprintf(txMessage, "\n%u,%ld,%ld,%ld,%ld\r", 
                 mode_bit,  
                 processed_data_array[0],
                 processed_data_array[1],
