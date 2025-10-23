@@ -1,6 +1,6 @@
 -- ======================================================================
 -- PSOC_Project.ctl generated from PSOC_Project
--- 10/18/2025 at 20:06
+-- 10/22/2025 at 16:20
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 
