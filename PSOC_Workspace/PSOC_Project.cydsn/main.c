@@ -194,8 +194,7 @@ void DetectTouchAndDriveLed(void)
         // Format the string with the mode, electrode index, and processed count
     
         uint mode_bit = (mode_flag == 0) ? 0 : 1;
-        sprintf(txMessage, "\n%u,%d,%d,%d,%d,%d,%d,%d,%d\r", 
-                mode_bit,  
+        sprintf(txMessage, "\n%d,%d,%d,%d,%d,%d,%d,%d\r",  
                 processed_data_array[0],
                 processed_data_array[1],
                 processed_data_array[2],
