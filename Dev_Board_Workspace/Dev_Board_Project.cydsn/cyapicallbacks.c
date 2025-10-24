@@ -137,9 +137,9 @@ void CapSense_StartSampleCallback (uint32 currentWidgetIndex, uint32 currentSens
 //        }
 //    }
     
-    if(currentWidgetIndex == CapSense_PROXIMITY0_WDGT_ID)
+    if(currentWidgetIndex == CapSense_TOP_PLATE_WDGT_ID)
     {
-        for(sensorIndex = 0; sensorIndex < 1; sensorIndex++)
+        for(sensorIndex = 0; sensorIndex < CapSense_TOTAL_CSD_SENSORS; sensorIndex++)
         {
             if((sensorIndex != currentSensorIndex))
             {
@@ -148,16 +148,31 @@ void CapSense_StartSampleCallback (uint32 currentWidgetIndex, uint32 currentSens
                     // If the sensor is adjacent to the sensor being scanned, 
                      // configure it as shield. 
                      
-                    CapSense_SetPinState(CapSense_PROXIMITY0_WDGT_ID, sensorIndex, CapSense_SHIELD);
+                    CapSense_SetPinState(CapSense_TOP_PLATE_WDGT_ID, sensorIndex, CapSense_SHIELD);
                 }
                 else
                 {
                     // If the sensor is not adjacent to the sensor being 
                     // scanned, connect it to ground
-                    CapSense_SetPinState(CapSense_PROXIMITY0_WDGT_ID, sensorIndex, CapSense_GROUND);
+                    CapSense_SetPinState(CapSense_TOP_PLATE_WDGT_ID, sensorIndex, CapSense_GROUND);
                 }
             }
         }
+    }
+    
+    // bottom plate stuff
+    if(!(mode_flag))
+    {
+        // normal mode:
+        CapSense_SetPinState(CapSense_BOTTOM_PLATE_WDGT_ID, (0u), CapSense_GROUND);
+        CapSense_SetPinState(CapSense_BOTTOM_PLATE_WDGT_ID, (1u), CapSense_GROUND);
+    }
+   
+    else
+    {
+        // shear mode:
+        CapSense_SetPinState(CapSense_BOTTOM_PLATE_WDGT_ID, (0u), CapSense_GROUND);
+        CapSense_SetPinState(CapSense_BOTTOM_PLATE_WDGT_ID, (1u), CapSense_SHIELD);
     }
 }
 

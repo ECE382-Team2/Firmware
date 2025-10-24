@@ -33,7 +33,7 @@ void DetectTouchAndDriveLed(void);
 
 uint16 raw_count; 
 uint8_t mode_flag = 0; // positive = shear, zero = normal
-int32_t processed_data_array[4];
+int16_t processed_data_array[8];
 
 // Functions
 
@@ -90,7 +90,7 @@ void Post_Process(void)
             uint16_t sensor_b = CapSense_dsRam.snsList.top_plate[base_element_index+1].raw[0];
 
             // Store the difference
-            processed_data_array[i] = sensor_a - sensor_b;
+            processed_data_array[i+4] = sensor_a - sensor_b;
         }
     }
 }
@@ -194,17 +194,26 @@ void DetectTouchAndDriveLed(void)
         // Format the string with the mode, electrode index, and processed count
     
         uint mode_bit = (mode_flag == 0) ? 0 : 1;
-        sprintf(txMessage, "\n%u,%ld,%ld,%ld,%ld\r", 
+        sprintf(txMessage, "\n%u,%d,%d,%d,%d,%d,%d,%d,%d\r", 
                 mode_bit,  
                 processed_data_array[0],
                 processed_data_array[1],
                 processed_data_array[2],
-                processed_data_array[3]);
+                processed_data_array[3],
+                processed_data_array[4],
+                processed_data_array[5],
+                processed_data_array[6],
+                processed_data_array[7]
+        );
         
-        // Send the fully formatted string over the UART
-        UART_PutString(txMessage);
-    // delays after it has completed a cycle of going from normal to shear
-    if(mode_flag){CyDelay(100);}
+        // only prints after both modes have been done
+        if(mode_flag){
+            UART_PutString(txMessage);
+            CyDelay(100);
+        }
+        
+    
+    
     
 }
 

@@ -65,14 +65,17 @@ void Post_Process(void)
     // --- Mode 0: Read individual, evenly-spaced sensors ---
     if (mode_flag == 0)
     {
-        // The specific proximity sensor IDs you want to read
-        const uint8_t sensor_element_indexes[4] = {0, 2, 4, 6};
 
         for (i = 0; i < 4; i++)
         {
+             uint8_t base_element_index = i * 2;
+            
             // Read the raw count for each specified proximity sensor
-            // I personally feel like I should sum subsequent indexes but idk, will test maybe on real board.
-            processed_data_array[i] = CapSense_dsRam.snsList.proximity0[sensor_element_indexes[i]].raw[0];
+            uint16_t sensor_a = CapSense_dsRam.snsList.top_plate[base_element_index].raw[0];
+            uint16_t sensor_b = CapSense_dsRam.snsList.top_plate[base_element_index+1].raw[0];
+            
+            // Store the sum
+            processed_data_array[i] = sensor_a + sensor_b;
         }
     }
     // --- Mode 1: Read sensor pairs and find the difference ---
@@ -83,8 +86,8 @@ void Post_Process(void)
             uint8_t base_element_index = i * 2;
 
             // Read both raw counts from the pair
-            uint16_t sensor_a = CapSense_dsRam.snsList.proximity0[base_element_index].raw[0];
-            uint16_t sensor_b = CapSense_dsRam.snsList.proximity0[base_element_index+1].raw[0];
+            uint16_t sensor_a = CapSense_dsRam.snsList.top_plate[base_element_index].raw[0];
+            uint16_t sensor_b = CapSense_dsRam.snsList.top_plate[base_element_index+1].raw[0];
 
             // Store the difference
             processed_data_array[i] = sensor_a - sensor_b;
@@ -141,33 +144,27 @@ void UART_PutString(const char *s)
 * Summary:
 *
 * Parameters:
-* widgetId: The ID of the widget to calibrate (e.g., CapSense_PROXIMITY0_WDGT_ID).
+* widgetId: The ID of the widget to calibrate (e.g., CapSense_top_plate_WDGT_ID).
 *
 * Return:
 * None
 *******************************************************************************/
+
+// Macros
+
+#define MOD_IDAC        4u    // Lower = more sensitive (4–8 typical)
+#define COMP_IDAC       4u
+#define SNS_CLK_DIV     1u    // Lower divider = higher resolution
+#define RESOLUTION_BITS 16u   // Max precision
+
+
 void CalibrateCapSense(uint32 widgetID) {
     
-    char txMessage[TX_MESSAGE_SIZE];
-    uint32 status;
-        
-    // Start the tuning process. This is required before calling auto-calibration.
-    CapSense_RunTuner();
-    
-    UART_PutString("--- Starting CapSense Widget Calibration ---\r\n");
-    
-    /* CapSense block as a CalibrateWidget(). It calibrates all the IDACs for a given 
-    widget. IDAC is Current Digital-to-Analog Converter. I think it adjusts the current range?
-    
-    Returns 0 if calibration was successful. 
-    */ 
-    status = CapSense_CalibrateWidget(widgetID); 
-    sprintf(txMessage, "%lu\r\n", status); 
-    UART_PutString(txMessage);
-    
-    UART_PutString("--- Calibration Complete ---\r\n");
     
 }
+    
+    
+    
 
 
 /*******************************************************************************
@@ -188,15 +185,7 @@ void DetectTouchAndDriveLed(void)
     // Reduce buffer size to just the raw number and necessary characters
     char txMessage[TX_MESSAGE_SIZE]; 
 
-    // LED Control: (No Change)
-    if (CapSense_IsWidgetActive(CapSense_PROXIMITY0_WDGT_ID))
-    {
-        LED_0_Write(LED_ON);
-    }
-    else
-    {
-        LED_0_Write(LED_OFF);
-    }
+    
     
     // *** CRITICAL CHANGE: Only format the number and newline characters ***
     // This is the most streamlined way to log data.
@@ -214,7 +203,9 @@ void DetectTouchAndDriveLed(void)
         
         // Send the fully formatted string over the UART
         UART_PutString(txMessage);
-    CyDelay(1000);
+    // delays after it has completed a cycle of going from normal to shear
+    if(mode_flag){CyDelay(100);}
+    
 }
 
 /*******************************************************************************
@@ -241,7 +232,7 @@ int main(void)
     /* Calibrate CapSense block */
     //CalibrateCapSense(CapSense_PROXIMITY0_WDGT_ID);
     
-    CapSense_CalibrateAllWidgets();
+    //CapSense_CalibrateAllWidgets();
     /* Initiate the first scan of all enabled widgets */
     CapSense_ScanAllWidgets();
 
