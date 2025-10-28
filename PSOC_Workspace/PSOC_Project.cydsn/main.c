@@ -16,7 +16,7 @@
 #define LED_OFF          (1u)
 
 /* Define the size for the serial message buffer */
-#define TX_MESSAGE_SIZE  64
+#define TX_MESSAGE_SIZE  128
 
 /* Calibration Constants */
 #define CALIB_NUM_SAMPLES 50
@@ -30,10 +30,12 @@ void Post_Process(void);
 void CalibrateCapSense(uint32 widgetID);
 void DetectTouchAndDriveLed(void);
 
-
+// global definitions
 uint16 raw_count; 
 uint8_t mode_flag = 0; // positive = shear, zero = normal
-int16_t processed_data_array[8];
+int32_t processed_data_array[8];
+uint32_t current_count;
+uint32_t prev_count;
 
 // Functions
 
@@ -118,51 +120,6 @@ void UART_PutString(const char *s)
     }
 }
 
-// /*******************************************************************************
-// * Function Name: IsShieldingActive
-// ********************************************************************************
-// * Summary:
-// * Checks the CapSense configuration data structure for the Active Shield flag.
-// * According to the CapSense register map, 
-// *   CDS0_CONFIG is a uint16
-// *   SHLD_EN, the shield electrode signal enable/disable, is bit 8
-// * Return:
-// * 1 if shielding is configured as Active, 0 otherwise.
-// *******************************************************************************/
-// uint8 IsShieldingActive(void)
-// {    
-//     if ((CapSense_dsRam.csd0Config >> 8) & 1) {
-//         return 1;  
-//     } else {
-//         return 0;  
-//     } 
-// }
-
-/*******************************************************************************
-* Function Name: CalibrateCapSense
-********************************************************************************
-* Summary:
-*
-* Parameters:
-* widgetId: The ID of the widget to calibrate (e.g., CapSense_top_plate_WDGT_ID).
-*
-* Return:
-* None
-*******************************************************************************/
-
-// Macros
-
-#define MOD_IDAC        4u    // Lower = more sensitive (4–8 typical)
-#define COMP_IDAC       4u
-#define SNS_CLK_DIV     1u    // Lower divider = higher resolution
-#define RESOLUTION_BITS 16u   // Max precision
-
-
-void CalibrateCapSense(uint32 widgetID) {
-    
-    
-}
-    
     
     
 
@@ -184,8 +141,10 @@ void DetectTouchAndDriveLed(void)
 {
     // Reduce buffer size to just the raw number and necessary characters
     char txMessage[TX_MESSAGE_SIZE]; 
-
     
+    // calculates the time that passed between publishing
+    int delta = current_count - prev_count;
+    if(delta < 0){delta = delta + My_Time_TC_PERIOD_VALUE;}
     
     // *** CRITICAL CHANGE: Only format the number and newline characters ***
     // This is the most streamlined way to log data.
@@ -194,7 +153,8 @@ void DetectTouchAndDriveLed(void)
         // Format the string with the mode, electrode index, and processed count
     
         uint mode_bit = (mode_flag == 0) ? 0 : 1;
-        sprintf(txMessage, "\n%d,%d,%d,%d,%d,%d,%d,%d\r",  
+        sprintf(txMessage, "\n%d,%d,%d,%d,%d,%d,%d,%d,%d\r",
+                delta,
                 processed_data_array[0],
                 processed_data_array[1],
                 processed_data_array[2],
@@ -228,12 +188,17 @@ int main(void)
     /* Enable global interrupts (required for CapSense/UART operation) */
     CyGlobalIntEnable;
 
+    // Timer Stuff for time stamps
+    My_Time_Start();
+    current_count = 0;
+    prev_count = 0;
+    
     /* Start the UART component */
     UART_Start();
 
     /* Send a start message to confirm the link */
     UART_PutString("--- PSoC CapSense Logger Initialized ---\r\n");
-
+    
     /* Start the CapSense block */
     CapSense_Start();
     
@@ -251,6 +216,10 @@ int main(void)
         {
             /* Process the raw sensor data (filtering, baseline, detection) */
             CapSense_ProcessAllWidgets();
+            
+            // time stamp stuff
+            prev_count = current_count;
+            current_count = My_Time_ReadCounter();
             
             // Post process the sensor data
             Post_Process();
