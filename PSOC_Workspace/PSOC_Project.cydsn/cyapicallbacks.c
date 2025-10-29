@@ -70,6 +70,7 @@
 
 #include <stdint.h> // Required for uint_fast8_t and uint8_t
 #include "globals.h"
+#include "project.h"
 
 // Helper functions
 // this was made before I realized that I could just not read the invalid sensor values(which I already do)
@@ -113,29 +114,7 @@ void CapSense_StartSampleCallback (uint32 currentWidgetIndex, uint32 currentSens
 {
    
     uint8 sensorIndex;
-    
-//    if(currentWidgetIndex == CapSense_LINEARSLIDER_WDGT_ID)
-//    {
-//        for(sensorIndex = 0; sensorIndex < CapSense_LINEARSLIDER_NUM_SENSORS; sensorIndex++)
-//        {
-//            if(sensorIndex != currentSensorIndex)
-//            {
-//                if((sensorIndex == (currentSensorIndex - 1)) || (sensorIndex == (currentSensorIndex + 1)))
-//                {
-//                    // If the sensor is adjacent to the sensor being scanned, 
-//                     // configure it as shield. 
-//                     
-//                    CapSense_SetPinState(CapSense_LINEARSLIDER_WDGT_ID, sensorIndex, CapSense_SHIELD);
-//                }
-//                else
-//                {
-//                    // If the sensor is not adjacent to the sensor being 
-//                    // scanned, connect it to ground
-//                    CapSense_SetPinState(CapSense_LINEARSLIDER_WDGT_ID, sensorIndex, CapSense_GROUND);
-//                }
-//            }
-//        }
-//    }
+ 
     
     if(currentWidgetIndex == CapSense_TOP_PLATE_WDGT_ID)
     {
@@ -173,6 +152,24 @@ void CapSense_StartSampleCallback (uint32 currentWidgetIndex, uint32 currentSens
         // shear mode:
         CapSense_SetPinState(CapSense_BOTTOM_PLATE_WDGT_ID, (0u), CapSense_GROUND);
         CapSense_SetPinState(CapSense_BOTTOM_PLATE_WDGT_ID, (1u), CapSense_SHIELD);
+    }
+    
+    
+    // storing stuff for sensor by sensor output
+    if( currentWidgetIndex == CapSense_TOP_PLATE_WDGT_ID ){
+        
+        // checks to see if delta is negative and rectifies it if it is
+        //int delta = current_count - My_Time_ReadCounter();
+        //if(delta < 0 ){delta = delta + My_Time_TC_PERIOD_VALUE;} 
+        
+        uint32_t current_est_count = My_Time_ReadCounter();
+        
+        // time stamp stuff
+        processed_data_array[currentSensorIndex][0] = (current_est_count - current_count); 
+        processed_data_array[currentSensorIndex][1] = mode_flag;  
+        processed_data_array[currentSensorIndex][2] = currentSensorIndex;
+        
+        current_count = current_est_count;
     }
 }
 
