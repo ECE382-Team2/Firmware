@@ -41,9 +41,15 @@ void DetectTouchAndDriveLed(void);
 // global definitions
 uint16 raw_count; 
 volatile uint8_t mode_flag = 0; // positive = shear, zero = normal
+
+#ifdef CALIBRATION_MODE
 volatile int32_t processed_data_array[8][4] = {0};
 volatile uint32_t current_count = 0;
+#endif
 
+#ifdef VISUALIZATION_MODE
+volatile int32_t processed_data_array[16] = {0};
+#endif
 /* Moving Average filter internal state */
 static uint16_t avg_history_buffer[AVG_NUM_SENSORS][AVG_FILTER_NUM_SAMPLES];
 static uint32_t avg_current_sum[AVG_NUM_SENSORS] = { 0 };
@@ -73,7 +79,8 @@ static bool     avg_initialized[AVG_NUM_SENSORS] = { false };
 void Post_Process(void)
 {
     uint8_t i;
-
+    
+    #ifdef CALIBRATION_MODE
     for (i = 0; i < AVG_NUM_SENSORS; i++)
     {
         /* Read raw sensor value — adjust path if your CapSense RAM layout differs */
@@ -123,6 +130,16 @@ void Post_Process(void)
         
         /* processed_data_array[i][1] and processed_data_array[i][2] are left unchanged */
     }
+    #endif
+    
+    #ifdef VISUALIZATION_MODE
+    //insert averaging shit here
+    uint8_t mode_offset = 8*mode_flag;
+    for(i = 0; i<8; i++)
+    {
+        processed_data_array[i+mode_offset] = CapSense_dsRam.snsList.top_plate[i].raw[0];
+    }
+    #endif
 }
 
 
@@ -148,8 +165,6 @@ void UART_PutString(const char *s)
 }
 
     
-    
-
 
 /*******************************************************************************
 * Function Name: DetectTouchAndDriveLed
@@ -178,6 +193,7 @@ void DetectTouchAndDriveLed(void)
     // prints each value in the processed array with the corresponding electrode
         // Format the string with the mode, electrode index, and processed count
     
+        #ifdef CALIBRATION_MODE
         for( int i = 0; i<8; i++)
         {
             // creates message: filtered, raw, unused, raw (we keep original 4 columns)
@@ -187,14 +203,46 @@ void DetectTouchAndDriveLed(void)
             processed_data_array[i][2],
             processed_data_array[i][3]); /* raw */
             UART_PutString(txMessage);
-      
+            
         }
-        
         // small delay to slow datarate
         if(mode_flag == 1)
         {
             //CyDelay(1000);
+            
         }
+        #endif
+        
+        #ifdef VISUALIZATION_MODE
+            
+        // small delay to slow datarate
+        if(mode_flag == 1)
+        {
+            sprintf(txMessage, "\n%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\r", 
+                processed_data_array[0],
+                processed_data_array[1],
+                processed_data_array[2],
+                processed_data_array[3],
+                processed_data_array[4],
+                processed_data_array[5],
+                processed_data_array[6],
+                processed_data_array[7],
+                processed_data_array[8],
+                processed_data_array[9],
+                processed_data_array[10],
+                processed_data_array[11],
+                processed_data_array[12],
+                processed_data_array[13],
+                processed_data_array[14],
+                processed_data_array[15]
+            );
+            UART_PutString(txMessage);
+            //CyDelay(1000);
+        }
+        // Send the fully formatted string over the UART       
+        #endif
+              
+     
 }
 
 /*******************************************************************************
@@ -244,7 +292,7 @@ int main(void)
 
             // toggles the mode we are in after succesfully writing
             if( mode_flag == 1){mode_flag = 0;}
-            else                {mode_flag = 1;}
+            else               {mode_flag = 1;}
             
             /* Start the next scan of all enabled widgets */
             CapSense_ScanAllWidgets();
