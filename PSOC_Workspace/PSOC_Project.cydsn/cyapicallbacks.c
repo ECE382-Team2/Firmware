@@ -154,6 +154,9 @@ void CapSense_StartSampleCallback (uint32 currentWidgetIndex, uint32 currentSens
         CapSense_SetPinState(CapSense_BOTTOM_PLATE_WDGT_ID, (1u), CapSense_SHIELD);
     }
     
+    // sheild pin stuff
+    
+    
     #ifdef CALIBRATION_MODE
     // storing stuff for sensor by sensor output
     if( currentWidgetIndex == CapSense_TOP_PLATE_WDGT_ID ){

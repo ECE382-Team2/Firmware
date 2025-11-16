@@ -6,8 +6,8 @@
 #include <stdint.h> // For standard types like uint8_t
 
     
-//#define CALIBRATION_MODE
-#define VISUALIZATION_MODE
+#define CALIBRATION_MODE
+//#define VISUALIZATION_MODE
 
     
 // Declare the variable as 'extern'.
