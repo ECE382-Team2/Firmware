@@ -271,6 +271,7 @@ int main(void)
     
     /* Calibrate CapSense block */
     //CalibrateCapSense(CapSense_PROXIMITY0_WDGT_ID);
+
     
     //CapSense_CalibrateAllWidgets();
     /* Initiate the first scan of all enabled widgets */
