@@ -208,7 +208,7 @@ void DetectTouchAndDriveLed(void)
         // small delay to slow datarate
         if(mode_flag == 1)
         {
-            //CyDelay(1000);
+            //CyDelay(100);
             
         }
         #endif

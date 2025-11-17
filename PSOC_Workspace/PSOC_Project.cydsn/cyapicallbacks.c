@@ -167,15 +167,15 @@ void CapSense_StartSampleCallback (uint32 currentWidgetIndex, uint32 currentSens
         //int delta = current_count - My_Time_ReadCounter();
         //if(delta < 0 ){delta = delta + My_Time_TC_PERIOD_VALUE;} 
         
-        uint32_t current_est_count = My_Time_ReadCounter();
+        //uint32_t current_est_count = My_Time_ReadCounter();
         
         
         // time stamp stuff for calibration mode
-        processed_data_array[currentSensorIndex][0] = (current_est_count - current_count); 
+        processed_data_array[currentSensorIndex][0] = (My_Time_ReadCounter() - current_count); 
         processed_data_array[currentSensorIndex][1] = mode_flag;  
         processed_data_array[currentSensorIndex][2] = currentSensorIndex;
-        
-        current_count = current_est_count;
+            
+        current_count = My_Time_ReadCounter();
         
     }
     #endif
